@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-on-tertiary-fixed-variant: #930013;
+  --color-tertiary: #ffbcb7;
+  --color-surface-container-high: #242a3a;
+  --color-on-secondary-fixed-variant: #005236;
+  --color-surface-tint: #7bd0ff;
+  --color-surface-variant: #2f3445;
+  --color-inverse-on-surface: #2a3040;
+  --color-secondary-fixed: #6ffbbe;
+  --color-error: #ffb4ab;
+  --color-tertiary-fixed: #ffdad7;
+  --color-on-tertiary-fixed: #410004;
+  --color-error-container: #93000a;
+  --color-outline: #87929a;
+  --color-surface-container-lowest: #080e1d;
+  --color-outline-variant: #3e484f;
+  --color-primary-fixed-dim: #7bd0ff;
+  --color-on-surface: #dde2f8;
+  --color-inverse-surface: #dde2f8;
+  --color-background: #0d1322;
+  --color-secondary-container: #00a572;
+  --color-on-error: #690005;
+  --color-primary-container: #38bdf8;
+  --color-surface-container-highest: #2f3445;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed: #c4e7ff;
+  --color-tertiary-container: #ff938c;
+  --color-on-tertiary-container: #8d0012;
+  --color-secondary-fixed-dim: #4edea3;
+  --color-tertiary-fixed-dim: #ffb3ad;
+  --color-inverse-primary: #00668a;
+  --color-on-secondary-fixed: #002113;
+  --color-secondary: #4edea3;
+  --color-on-primary-container: #004965;
+  --color-on-secondary-container: #00311f;
+  --color-on-surface-variant: #bdc8d1;
+  --color-on-primary-fixed-variant: #004c69;
+  --color-on-background: #dde2f8;
+  --color-on-primary: #00354a;
+  --color-primary: #8ed5ff;
+  --color-surface: #0d1322;
+  --color-surface-bright: #33394a;
+  --color-surface-dim: #0d1322;
+  --color-on-secondary: #003824;
+  --color-on-tertiary: #68000a;
+  --color-on-primary-fixed: #001e2c;
+  --color-surface-container: #191f2f;
+  --color-surface-container-low: #151b2b;
+
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  --font-headline: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+}
+
+@layer base {
+  body {
+    cursor: none;
+    user-select: none;
+    overflow: hidden; /* Prevent body scroll for TV mounting */
+    @apply bg-background text-on-surface font-body;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes verticalScroll {
+  0% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-33.33%);
+  }
+  55% {
+    transform: translateY(-33.33%);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes autoScroll {
+  0%,
+  15% {
+    transform: translateY(0);
+  }
+  85%,
+  100% {
+    transform: translateY(calc(-100% + 400px));
+  }
+}
+
+@layer utilities {
+  .animate-scroll {
+    animation: verticalScroll 20s ease-in-out infinite;
+  }
+  .auto-scroll-container {
+    animation: autoScroll 20s ease-in-out infinite alternate;
+  }
+  .auto-scroll-content {
+    animation: scrollUp 20s linear infinite;
+  }
+  .auto-scroll-content:hover {
+    animation-play-state: paused;
+  }
+}
+
+@layer components {
+  .glass-card,
+  .glass-panel {
+    background: rgba(47, 52, 69, 0.4);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(142, 213, 255, 0.2);
+  }
+  .status-glow-success,
+  .ambient-glow-success {
+    box-shadow: 0 0 32px rgba(78, 222, 163, 0.12);
+  }
+  .glow-secondary {
+    box-shadow: 0 0 40px rgba(78, 222, 163, 0.1);
+  }
+  .glow-primary {
+    box-shadow: 0 0 32px rgba(56, 189, 248, 0.12);
+  }
+  .glow-error {
+    box-shadow: 0 0 40px rgba(255, 180, 171, 0.2);
+  }
+
+  .segmented-track {
+    background: repeating-linear-gradient(
+      90deg,
+      #2f3445,
+      #2f3445 10px,
+      transparent 10px,
+      transparent 14px
+    );
+  }
+  .segmented-arc {
+    stroke-dasharray: 12, 4;
+  }
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+  .material-symbols-outlined.fill {
+    font-variation-settings: 'FILL' 1;
+  }
+
+  .scroll-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .scroll-content {
+    animation: verticalScroll 20s ease-in-out infinite;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}

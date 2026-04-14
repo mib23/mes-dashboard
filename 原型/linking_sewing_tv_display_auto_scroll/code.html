@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC COMMAND | TV Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#930013",
+                    "tertiary": "#ffbcb7",
+                    "surface-container-high": "#242a3a",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-tint": "#7bd0ff",
+                    "surface-variant": "#2f3445",
+                    "inverse-on-surface": "#2a3040",
+                    "secondary-fixed": "#6ffbbe",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-tertiary-fixed": "#410004",
+                    "error-container": "#93000a",
+                    "outline": "#87929a",
+                    "surface-container-lowest": "#080e1d",
+                    "outline-variant": "#3e484f",
+                    "primary-fixed-dim": "#7bd0ff",
+                    "on-surface": "#dde2f8",
+                    "inverse-surface": "#dde2f8",
+                    "background": "#0d1322",
+                    "secondary-container": "#00a572",
+                    "on-error": "#690005",
+                    "primary-container": "#38bdf8",
+                    "surface-container-highest": "#2f3445",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#c4e7ff",
+                    "tertiary-container": "#ff938c",
+                    "on-tertiary-container": "#8d0012",
+                    "secondary-fixed-dim": "#4edea3",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "inverse-primary": "#00668a",
+                    "on-secondary-fixed": "#002113",
+                    "secondary": "#4edea3",
+                    "on-primary-container": "#004965",
+                    "on-secondary-container": "#00311f",
+                    "on-surface-variant": "#bdc8d1",
+                    "on-primary-fixed-variant": "#004c69",
+                    "on-background": "#dde2f8",
+                    "on-primary": "#00354a",
+                    "primary": "#8ed5ff",
+                    "surface": "#0d1322",
+                    "surface-bright": "#33394a",
+                    "surface-dim": "#0d1322",
+                    "on-secondary": "#003824",
+                    "on-tertiary": "#68000a",
+                    "on-primary-fixed": "#001e2c",
+                    "surface-container": "#191f2f",
+                    "surface-container-low": "#151b2b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0d1322; color: #dde2f8; font-family: 'Inter', sans-serif; overflow: hidden; }
+        .glass-panel {
+            background: rgba(47, 52, 69, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(142, 213, 255, 0.1);
+            border-left: 1px solid rgba(142, 213, 255, 0.05);
+        }
+        .glow-secondary { box-shadow: 0 0 40px rgba(78, 222, 163, 0.1); }
+        .glow-error { box-shadow: 0 0 40px rgba(255, 180, 171, 0.2); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+
+        @keyframes autoScroll {
+            0%, 15% { transform: translateY(0); }
+            85%, 100% { transform: translateY(calc(-100% + 400px)); }
+        }
+        .auto-scroll-container {
+            animation: autoScroll 20s ease-in-out infinite alternate;
+        }
+        
+        /* Ensure specific heights for TV fit */
+        .bottleneck-height { height: 320px; }
+        .leaderboard-height { height: 420px; }
+    </style>
+</head>
+<body class="bg-surface-container-lowest h-screen w-screen p-8 flex flex-col gap-6 select-none cursor-none">
+<!-- TV Header: Highly Visible Branding & Core Totals -->
+<header class="flex justify-between items-end">
+<div class="flex items-center gap-8">
+<span class="text-4xl font-black text-primary tracking-tighter uppercase font-['Inter']">KINETIC COMMAND</span>
+<div class="h-14 w-[1px] bg-outline/20"></div>
+<div>
+<p class="text-[0.75rem] font-['Space_Grotesk'] uppercase tracking-[0.4em] text-primary/70 mb-1">Live Workshop Status</p>
+<h1 class="text-3xl font-bold tracking-tight text-on-surface">Linking &amp; Sewing Workshop</h1>
+</div>
+</div>
+<div class="flex items-end gap-12">
+<div class="text-right">
+<p class="text-[0.75rem] font-['Space_Grotesk'] uppercase tracking-widest text-outline mb-1">Shift A Clock</p>
+<p class="text-5xl font-black text-on-surface tabular-nums">03:14:22</p>
+</div>
+<div class="h-16 w-[1px] bg-outline/20"></div>
+<div class="text-right">
+<p class="text-[0.75rem] font-['Space_Grotesk'] uppercase tracking-widest text-outline mb-1">Total Floor Output</p>
+<p class="text-6xl font-black text-on-surface tracking-tighter">4,822 <span class="text-xl font-normal text-secondary">PCS</span></p>
+</div>
+</div>
+</header>
+<!-- Layout Grid -->
+<div class="grid grid-cols-12 gap-6 flex-1 min-h-0">
+<!-- Left Column (8 units): Capacity and Flow -->
+<div class="col-span-8 flex flex-col gap-6 min-h-0">
+<!-- Team Efficiency Cards -->
+<section class="grid grid-cols-3 gap-6 shrink-0">
+<!-- Card 1 -->
+<div class="glass-panel p-6 rounded-xl glow-secondary flex flex-col justify-between">
+<p class="text-[0.7rem] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-outline mb-4">Linking Efficiency</p>
+<div class="flex items-center justify-between mb-4">
+<span class="text-5xl font-black text-on-surface">94%</span>
+<span class="material-symbols-outlined text-secondary text-4xl">trending_up</span>
+</div>
+<div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[94%] shadow-[0_0_8px_#4edea3]"></div>
+</div>
+<div class="flex justify-between mt-3 text-[0.65rem] font-bold uppercase tracking-widest">
+<span class="text-outline">Actual: 1,420</span>
+<span class="text-primary">Target: 1,510</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between">
+<p class="text-[0.7rem] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-outline mb-4">Sewing Efficiency</p>
+<div class="flex items-center justify-between mb-4">
+<span class="text-5xl font-black text-on-surface">82%</span>
+<span class="material-symbols-outlined text-primary text-4xl">trending_flat</span>
+</div>
+<div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[82%]"></div>
+</div>
+<div class="flex justify-between mt-3 text-[0.65rem] font-bold uppercase tracking-widest">
+<span class="text-outline">Actual: 2,102</span>
+<span class="text-primary">Target: 2,560</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between">
+<p class="text-[0.7rem] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-outline mb-4">Flat Seam Efficiency</p>
+<div class="flex items-center justify-between mb-4">
+<span class="text-5xl font-black text-on-surface">68%</span>
+<span class="material-symbols-outlined text-error text-4xl">trending_down</span>
+</div>
+<div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[68%]"></div>
+</div>
+<div class="flex justify-between mt-3 text-[0.65rem] font-bold uppercase tracking-widest">
+<span class="text-outline">Actual: 1,300</span>
+<span class="text-primary">Target: 1,912</span>
+</div>
+</div>
+</div>
+</section>
+<!-- WIP Bottleneck Analysis -->
+<section class="flex-1 glass-panel rounded-xl p-8 flex flex-col min-h-0 overflow-hidden">
+<div class="flex justify-between items-center mb-10">
+<h3 class="text-lg font-bold uppercase tracking-[0.2em] font-['Space_Grotesk']">WIP Flow Bottleneck Analysis</h3>
+<div class="flex items-center gap-3 bg-error-container/40 border border-error/30 text-error px-4 py-1.5 rounded-md">
+<span class="material-symbols-outlined text-xl fill animate-pulse">report</span>
+<span class="text-[0.7rem] uppercase font-black tracking-widest">Critical Delay</span>
+</div>
+</div>
+<div class="flex-1 flex items-center justify-center relative bottleneck-height">
+<!-- Flow Visualization -->
+<div class="w-full flex items-center justify-between px-16 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-4 z-10">
+<div class="w-24 h-24 rounded-full bg-surface-container-high border-2 border-primary-container/20 flex items-center justify-center text-on-surface text-2xl font-black">42</div>
+<span class="text-[0.65rem] font-['Space_Grotesk'] uppercase tracking-widest text-outline">Collar Prep</span>
+</div>
+<div class="flex-1 h-1 bg-surface-container relative mx-2">
+<div class="absolute inset-0 bg-secondary w-full opacity-10"></div>
+</div>
+<!-- Step 2 - BOTTLENECK -->
+<div class="flex flex-col items-center gap-4 z-10">
+<div class="w-40 h-40 rounded-full bg-error-container/40 border-4 border-error flex flex-col items-center justify-center text-white font-black glow-error animate-pulse">
+<span class="text-6xl">218</span>
+<span class="text-[0.6rem] uppercase tracking-tighter opacity-80">WIP units</span>
+</div>
+<span class="text-[0.75rem] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-error font-black">Sleeve Attach</span>
+</div>
+<div class="flex-1 h-1 bg-surface-container relative mx-2">
+<div class="absolute inset-0 bg-error w-[15%]"></div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-4 z-10 opacity-30">
+<div class="w-24 h-24 rounded-full bg-surface-container-low border-2 border-outline-variant flex items-center justify-center text-on-surface text-2xl font-black">14</div>
+<span class="text-[0.65rem] font-['Space_Grotesk'] uppercase tracking-widest text-outline">Side Seam</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (4 units): Quality and Leaders -->
+<aside class="col-span-4 flex flex-col gap-6 min-h-0 overflow-hidden">
+<!-- Quality Section -->
+<div class="glass-panel p-6 rounded-xl border-l-8 border-error shrink-0">
+<div class="flex items-center gap-3 mb-6 text-error">
+<span class="material-symbols-outlined text-3xl">warning</span>
+<h3 class="text-sm font-black uppercase tracking-[0.15em] font-['Space_Grotesk']">Quality Alerts</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center bg-surface-container-high/50 p-4 rounded-lg border border-error/20">
+<div>
+<p class="text-sm font-bold text-on-surface">Skip stitch</p>
+<p class="text-[0.6rem] text-outline uppercase tracking-widest">Line 04 - Sewing</p>
+</div>
+<span class="text-error font-black text-2xl">12.4%</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low/50 p-4 rounded-lg border border-outline-variant/20">
+<div>
+<p class="text-sm font-bold text-on-surface">Needle drop</p>
+<p class="text-[0.6rem] text-outline uppercase tracking-widest">Line 01 - Linking</p>
+</div>
+<span class="text-on-surface font-black text-2xl">4.1%</span>
+</div>
+</div>
+</div>
+<!-- Performance Leaderboard -->
+<div class="glass-panel p-6 rounded-xl flex-1 flex flex-col min-h-0">
+<h3 class="text-[0.7rem] font-bold uppercase tracking-[0.3em] font-['Space_Grotesk'] text-outline mb-6">Shift A - Top Performers</h3>
+<div class="flex-1 overflow-hidden relative">
+<div class="space-y-6 auto-scroll-container">
+<!-- Performer 1 -->
+<div class="flex items-center gap-5">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-secondary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBltS2s6pXvGSjbT_8E5X4QI5rBjBxma0H9FcaoYVNcSi4hDOcf4yJHMCUqxLK1eX5fTqUKRPWl9lcVgsvKXQmegVbnYLvIHg9QF1ESmhvjIphroUUEFSnmdTrT0m53PhJr8QaWnMyaIpNhqpndBP4oJZdJbqCEt2rWfvImncdqAjY3i75NEcBixHoe8fclncDmQ78Idiq8Qcs29V-YFrhVHEsMEsXVpgClDx1RGbG8M-KjRsOEnpMNEQXnH-YqeOjOxrajd6X-uKs"/>
+<span class="absolute -top-1 -right-1 bg-secondary text-on-secondary text-[0.6rem] font-black px-1.5 py-0.5 rounded-full">1</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-[0.6rem] text-outline uppercase font-['Space_Grotesk']">Master Sewer</p>
+</div>
+<p class="text-2xl font-black text-secondary">412 <span class="text-[0.6rem] font-normal uppercase opacity-70">pcs</span></p>
+</div>
+<!-- Performer 2 -->
+<div class="flex items-center gap-5">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjrFK9eX_0SPtVAB33bJN7vfd1ytApv3Ej-X854bFML6RIfwztjMwqu1FKoKbmL5Hxegds0RiHLbUDo-6XzXIzkGSmu4I2199BaPQ94-NK_8rnpQANz1nOSSDmSqIe9fpnLHb9pHyHOcLXdtJMSYSCKtd0SZ36QL-cw5Ot6rMSZeFirF_dQ-tIMzk8974SGYQPcvdgwrlxeZL2oAgT4jh62fYbQ1voNGoCSKILV8JgRoMSD8_lEKwlrTRsEh_Juit0oWM6ySfPakc"/>
+<span class="absolute -top-1 -right-1 bg-surface-container-highest text-on-surface text-[0.6rem] font-black px-1.5 py-0.5 rounded-full">2</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-on-surface">Chen Wei</p>
+<p class="text-[0.6rem] text-outline uppercase font-['Space_Grotesk']">Linking Lead</p>
+</div>
+<p class="text-2xl font-black text-on-surface">388 <span class="text-[0.6rem] font-normal uppercase opacity-70">pcs</span></p>
+</div>
+<!-- Performer 3 -->
+<div class="flex items-center gap-5">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkPk9AfZAKdEY6rG8qncky80CihRfjSgGAnaOU_J3I405Q0MueKuS2G00b6OorBZwBVjrgYgyo5yr5IrHkLnDtOTod5-2vEcnFzj0rAGu5OzXXrzJLYEq5R0a0sCuiipSDMUq1LZk96do33XmRJgvtysK_l0OPqMEuDl6JMKATDWvqwb5FBbUu2rZjLP_2EQncnJbQz-QiOyacwWxnOV7miG61fWfuc81he2MMeuJFodMOLlDvKCErAVDWutGQGME9q-em77rJMTk"/>
+<span class="absolute -top-1 -right-1 bg-surface-container-highest text-on-surface text-[0.6rem] font-black px-1.5 py-0.5 rounded-full">3</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-on-surface">Sarah J.</p>
+<p class="text-[0.6rem] text-outline uppercase font-['Space_Grotesk']">Flat Seam Ops</p>
+</div>
+<p class="text-2xl font-black text-on-surface">355 <span class="text-[0.6rem] font-normal uppercase opacity-70">pcs</span></p>
+</div>
+<!-- Duplicate items for seamless scroll if list grows -->
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Footer Stats -->
+<footer class="grid grid-cols-3 gap-6 shrink-0">
+<div class="glass-panel p-5 rounded-xl flex items-center gap-6 border-b-4 border-secondary/30">
+<div class="p-4 rounded-xl bg-secondary/10 border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-3xl">power</span>
+</div>
+<div>
+<p class="text-[0.65rem] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-outline mb-1">Active Machines</p>
+<p class="text-3xl font-black text-on-surface">142/150 <span class="text-sm font-bold text-secondary ml-1">94.6%</span></p>
+</div>
+</div>
+<div class="glass-panel p-5 rounded-xl flex items-center gap-6 border-b-4 border-primary-container/30">
+<div class="p-4 rounded-xl bg-primary-container/10 border border-primary-container/20">
+<span class="material-symbols-outlined text-primary-container text-3xl">person_pin_circle</span>
+</div>
+<div>
+<p class="text-[0.65rem] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-outline mb-1">Labor Attendance</p>
+<p class="text-3xl font-black text-on-surface">97.6% <span class="text-sm font-bold text-primary-container ml-1">SHIFT A</span></p>
+</div>
+</div>
+<div class="glass-panel p-5 rounded-xl flex items-center gap-6 border-b-4 border-tertiary-container/30">
+<div class="p-4 rounded-xl bg-tertiary-container/10 border border-tertiary-container/20">
+<span class="material-symbols-outlined text-tertiary-container text-3xl">inventory_2</span>
+</div>
+<div>
+<p class="text-[0.65rem] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-outline mb-1">Hourly Target Status</p>
+<p class="text-3xl font-black text-on-surface">Ahead <span class="text-sm font-bold text-tertiary-container ml-1">+120 PCS</span></p>
+</div>
+</div>
+</footer>
+</body></html>

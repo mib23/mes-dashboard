@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetic Command | Workshop Broadcast</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#930013",
+                    "tertiary": "#ffbcb7",
+                    "surface-container-high": "#242a3a",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-tint": "#7bd0ff",
+                    "surface-variant": "#2f3445",
+                    "inverse-on-surface": "#2a3040",
+                    "secondary-fixed": "#6ffbbe",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-tertiary-fixed": "#410004",
+                    "error-container": "#93000a",
+                    "outline": "#87929a",
+                    "surface-container-lowest": "#080e1d",
+                    "outline-variant": "#3e484f",
+                    "primary-fixed-dim": "#7bd0ff",
+                    "on-surface": "#dde2f8",
+                    "inverse-surface": "#dde2f8",
+                    "background": "#0d1322",
+                    "secondary-container": "#00a572",
+                    "on-error": "#690005",
+                    "primary-container": "#38bdf8",
+                    "surface-container-highest": "#2f3445",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#c4e7ff",
+                    "tertiary-container": "#ff938c",
+                    "on-tertiary-container": "#8d0012",
+                    "secondary-fixed-dim": "#4edea3",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "inverse-primary": "#00668a",
+                    "on-secondary-fixed": "#002113",
+                    "secondary": "#4edea3",
+                    "on-primary-container": "#004965",
+                    "on-secondary-container": "#00311f",
+                    "on-surface-variant": "#bdc8d1",
+                    "on-primary-fixed-variant": "#004c69",
+                    "on-background": "#dde2f8",
+                    "on-primary": "#00354a",
+                    "primary": "#8ed5ff",
+                    "surface": "#0d1322",
+                    "surface-bright": "#33394a",
+                    "surface-dim": "#0d1322",
+                    "on-secondary": "#003824",
+                    "on-tertiary": "#68000a",
+                    "on-primary-fixed": "#001e2c",
+                    "surface-container": "#191f2f",
+                    "surface-container-low": "#151b2b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(47, 52, 69, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(142, 213, 255, 0.1);
+        }
+        .glow-secondary {
+            box-shadow: 0 0 32px rgba(78, 222, 163, 0.12);
+        }
+        .glow-primary {
+            box-shadow: 0 0 32px rgba(56, 189, 248, 0.12);
+        }
+        
+        /* Auto-scroll animation for TV display */
+        @keyframes scroll-vertical {
+            0% { transform: translateY(0); }
+            45% { transform: translateY(0); }
+            50% { transform: translateY(-50%); }
+            95% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+        .animate-scroll {
+            animation: scroll-vertical 20s ease-in-out infinite;
+        }
+        
+        /* Hide scrollbars but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        body {
+            cursor: none; /* Hide cursor for TV broadcast */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-hidden">
+<!-- Main Broadcast Canvas -->
+<main class="w-full h-screen p-8 flex flex-col gap-6 bg-surface-container-lowest">
+<!-- Top Header Bar (High Contrast) -->
+<header class="flex items-center justify-between border-b border-outline-variant/30 pb-4 shrink-0">
+<div class="flex items-center gap-6">
+<span class="text-4xl font-black text-[#38bdf8] tracking-widest uppercase">KINETIC COMMAND</span>
+<div class="h-10 w-px bg-outline-variant/40"></div>
+<div class="flex flex-col">
+<span class="text-xs font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold">Production Floor Overview</span>
+<span class="text-lg font-black text-secondary flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    LIVE BROADCAST
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-10">
+<div class="text-right">
+<p class="text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-widest">System Status</p>
+<p class="text-xl font-black text-secondary">OPERATIONAL</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-widest">Shift Time Remaining</p>
+<p class="text-xl font-black tabular-nums">03:42:15</p>
+</div>
+</div>
+</header>
+<!-- Mid Section: Performance and Alerts -->
+<div class="grid grid-cols-12 gap-6 h-[55%] min-h-0 shrink-0">
+<!-- Left Column: Metrics -->
+<div class="col-span-8 flex flex-col gap-6 min-h-0">
+<section class="grid grid-cols-3 gap-6 shrink-0">
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between glow-primary border border-primary/30">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label text-xs uppercase tracking-widest text-primary font-bold">Availability</span>
+<span class="material-symbols-outlined text-primary-container" data-icon="timer">timer</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-6xl font-black tracking-tighter text-on-surface">94.2</span>
+<span class="text-xl font-bold text-primary-container">%</span>
+</div>
+<div class="mt-4 h-2.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[94.2%]"></div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between glow-secondary border border-secondary/30">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label text-xs uppercase tracking-widest text-secondary font-bold">Performance</span>
+<span class="material-symbols-outlined text-secondary" data-icon="bolt">bolt</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-6xl font-black tracking-tighter text-on-surface">88.5</span>
+<span class="text-xl font-bold text-secondary">%</span>
+</div>
+<div class="mt-4 h-2.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[88.5%]"></div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between border border-on-surface-variant/30">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Quality Rate</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="verified">verified</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-6xl font-black tracking-tighter text-on-surface">99.1</span>
+<span class="text-xl font-bold text-on-surface-variant">%</span>
+</div>
+<div class="mt-4 h-2.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-on-surface-variant w-[99.1%]"></div>
+</div>
+</div>
+</section>
+<!-- Production Progress Detail (Non-scrolling part) -->
+<section class="flex-1 min-h-0 bg-surface-container-low rounded-xl p-6 border border-outline-variant/20 flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-black tracking-tight uppercase">Production Progress <span class="text-primary-container ml-2">Detail</span></h2>
+<div class="flex gap-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-sm bg-primary-container"></div>
+<span class="text-[10px] font-label font-bold tracking-widest">ACTUAL</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-sm bg-surface-container-highest"></div>
+<span class="text-[10px] font-label font-bold tracking-widest">PLANNED</span>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-around gap-4 overflow-hidden">
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-label text-base tracking-[0.15em] font-bold uppercase">Front Panels</span>
+<span class="text-xl font-black">1,420 / 1,800 <span class="text-primary-container ml-2">78%</span></span>
+</div>
+<div class="h-8 w-full bg-surface-container-highest rounded-lg flex overflow-hidden p-1 border border-outline-variant/10">
+<div class="h-full bg-primary-container rounded" style="width: 78%"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-label text-base tracking-[0.15em] font-bold uppercase">Back Panels</span>
+<span class="text-xl font-black">1,380 / 1,800 <span class="text-primary-container ml-2">76%</span></span>
+</div>
+<div class="h-8 w-full bg-surface-container-highest rounded-lg flex overflow-hidden p-1 border border-outline-variant/10">
+<div class="h-full bg-primary-container rounded" style="width: 76%"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-label text-base tracking-[0.15em] font-bold uppercase">Sleeve Sets</span>
+<span class="text-xl font-black">1,480 / 1,900 <span class="text-secondary ml-2">82%</span></span>
+</div>
+<div class="h-8 w-full bg-surface-container-highest rounded-lg flex overflow-hidden p-1 border border-outline-variant/10">
+<div class="h-full bg-secondary rounded" style="width: 82%"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Output & Faults -->
+<div class="col-span-4 flex flex-col gap-6 min-h-0">
+<section class="bg-surface-container p-6 rounded-xl border border-outline-variant/20 shrink-0">
+<h3 class="font-label text-xs font-black tracking-[0.2em] text-on-surface-variant uppercase mb-4 text-center">Total Floor Output</h3>
+<div class="flex flex-col items-center justify-center">
+<div class="relative w-44 h-44 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="88" cy="88" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary-container" cx="88" cy="88" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502.65" stroke-dashoffset="125.66" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black">4,280</span>
+<span class="text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-widest mt-1">Pieces / Shift</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 w-full mt-4">
+<div class="text-center">
+<p class="text-[10px] font-label font-bold text-on-surface-variant uppercase mb-1">Target</p>
+<p class="text-xl font-black">5,500</p>
+</div>
+<div class="text-center border-l border-outline-variant/30">
+<p class="text-[10px] font-label font-bold text-on-surface-variant uppercase mb-1">Actual</p>
+<p class="text-xl font-black text-secondary">4,280</p>
+</div>
+</div>
+</div>
+</section>
+<section class="flex-1 bg-surface-container-high rounded-xl p-6 border-l-[12px] border-error overflow-hidden flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label text-xs font-black tracking-[0.2em] text-error uppercase">Active Faults</h3>
+<span class="material-symbols-outlined text-error text-2xl animate-pulse" data-icon="warning" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="space-y-4 overflow-hidden">
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/30">
+<span class="material-symbols-outlined text-error text-3xl" data-icon="error">error</span>
+<div>
+<p class="text-base font-black">Yarn Breakage: M-042</p>
+<p class="text-xs text-on-surface-variant font-medium">Line 04 stopped. Action required.</p>
+<p class="text-[10px] font-label mt-1 text-error font-black uppercase">Downtime: 03m 12s</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-error text-3xl" data-icon="priority_high">priority_high</span>
+<div>
+<p class="text-base font-black">Needle Drop: M-009</p>
+<p class="text-xs text-on-surface-variant font-medium">Sensors detected drop in Line 01.</p>
+<p class="text-[10px] font-label mt-1 text-error font-black uppercase">Downtime: 12m 45s</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Bottom Section: Machine Status Grid (With Auto-Scroll for Multi-page content) -->
+<section class="flex-1 min-h-0 flex flex-col gap-4 overflow-hidden">
+<div class="flex items-center justify-between shrink-0">
+<h2 class="text-xl font-black tracking-tight uppercase">Machine Status <span class="text-primary-container ml-2">Grid</span></h2>
+<div class="flex gap-8">
+<span class="flex items-center gap-2 text-[10px] font-label font-black tracking-widest"><div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_rgba(78,222,163,0.8)]"></div> RUNNING</span>
+<span class="flex items-center gap-2 text-[10px] font-label font-black tracking-widest"><div class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></div> STANDBY</span>
+<span class="flex items-center gap-2 text-[10px] font-label font-black tracking-widest"><div class="w-3 h-3 rounded-full bg-error shadow-[0_0_10px_rgba(255,180,171,0.8)]"></div> DOWNTIME</span>
+</div>
+</div>
+<!-- Scroller Container -->
+<div class="flex-1 overflow-hidden relative">
+<!-- The scrollable list -->
+<div class="animate-scroll absolute w-full space-y-4">
+<!-- Group 1 (First View) -->
+<div class="grid grid-cols-8 gap-4">
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-001</span>
+<div class="mt-2 text-3xl font-black">98%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-002</span>
+<div class="mt-2 text-3xl font-black">96%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-error">
+<span class="text-[10px] font-bold opacity-60 text-error/80">M-003</span>
+<div class="mt-2 text-3xl font-black text-error">STOP</div>
+<div class="mt-1 text-[10px] font-label font-black text-error uppercase tracking-widest">Yarn Break</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-004</span>
+<div class="mt-2 text-3xl font-black">99%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-tertiary-fixed-dim">
+<span class="text-[10px] font-bold opacity-60">M-005</span>
+<div class="mt-2 text-3xl font-black text-tertiary-fixed-dim">IDLE</div>
+<div class="mt-1 text-[10px] font-label font-black text-tertiary-fixed-dim uppercase tracking-widest">Standby</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-006</span>
+<div class="mt-2 text-3xl font-black">95%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-007</span>
+<div class="mt-2 text-3xl font-black">97%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-008</span>
+<div class="mt-2 text-3xl font-black">98%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+</div>
+<!-- Group 2 (Second View - Duplicate or continuation for TV scroll) -->
+<div class="grid grid-cols-8 gap-4">
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-009</span>
+<div class="mt-2 text-3xl font-black text-error">STOP</div>
+<div class="mt-1 text-[10px] font-label font-black text-error uppercase tracking-widest">Needle</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-010</span>
+<div class="mt-2 text-3xl font-black">94%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-011</span>
+<div class="mt-2 text-3xl font-black">99%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-012</span>
+<div class="mt-2 text-3xl font-black">98%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-013</span>
+<div class="mt-2 text-3xl font-black">92%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-tertiary-fixed-dim">
+<span class="text-[10px] font-bold opacity-60">M-014</span>
+<div class="mt-2 text-3xl font-black text-tertiary-fixed-dim">IDLE</div>
+<div class="mt-1 text-[10px] font-label font-black text-tertiary-fixed-dim uppercase tracking-widest">Standby</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-015</span>
+<div class="mt-2 text-3xl font-black">96%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border-t-4 border-secondary">
+<span class="text-[10px] font-bold opacity-60">M-016</span>
+<div class="mt-2 text-3xl font-black">98%</div>
+<div class="mt-1 text-[10px] font-label font-black text-secondary uppercase tracking-widest">Stable</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
