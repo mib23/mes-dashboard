@@ -1,8 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useRealtimeDashboard } from './hooks/useRealtimeDashboard';
 import FactoryOverview from './pages/FactoryOverview';
 import KnittingWorkshop from './pages/KnittingWorkshop';
 import LinkingSewing from './pages/LinkingSewing';
 import FinishingPackaging from './pages/FinishingPackaging';
+
+function RealtimeBootstrap() {
+  useRealtimeDashboard();
+  return null;
+}
 
 function Home() {
   return (
@@ -33,6 +39,7 @@ function Home() {
 function App() {
   return (
     <Router>
+      <RealtimeBootstrap />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/factory" element={<FactoryOverview />} />
