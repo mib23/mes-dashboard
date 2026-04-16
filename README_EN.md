@@ -29,25 +29,25 @@ This is not just a static UI mock. It is a multi-screen manufacturing dashboard 
 
 Built for management-level visibility: production achievement rate, equipment runtime, quality yield, urgent orders, and workshop rankings.
 
-![Factory Overview Screen](./原型/factory_overview_tv_display_auto_scroll/screen.png)
+![Factory Overview Screen](./public/factory_overview_tv_display_auto_scroll/screen.png)
 
 ### 2. Knitting Workshop Screen
 
 Focused on equipment-heavy operations: OEE, production progress, fault alerts, and machine grid status.
 
-![Knitting Workshop Screen](./原型/knitting_workshop_tv_display_auto_scroll/screen.png)
+![Knitting Workshop Screen](./public/knitting_workshop_tv_display_auto_scroll/screen.png)
 
 ### 3. Linking & Sewing Workshop Screen
 
 Focused on labor-intensive processes: WIP bottlenecks, quality alerts, team efficiency, and worker leaderboard.
 
-![Linking & Sewing Workshop Screen](./原型/linking_sewing_tv_display_auto_scroll/screen.png)
+![Linking & Sewing Workshop Screen](./public/linking_sewing_tv_display_auto_scroll/screen.png)
 
 ### 4. Finishing & Packaging Screen
 
 Focused on washing, drying, packaging, and shipping readiness with machine status, batch progress, kit completion, and dock activity.
 
-![Finishing & Packaging Screen](./原型/finishing_packaging_tv_display_auto_scroll/screen.png)
+![Finishing & Packaging Screen](./public/finishing_packaging_tv_display_auto_scroll/screen.png)
 
 ## Implemented Features
 
@@ -154,7 +154,7 @@ mes-dashboard/
 │  │  ├─ store/
 │  │  ├─ types/
 │  │  └─ utils/
-├─ 原型/
+├─ public/
 │  ├─ factory_overview_tv_display_auto_scroll/
 │  ├─ knitting_workshop_tv_display_auto_scroll/
 │  ├─ linking_sewing_tv_display_auto_scroll/
