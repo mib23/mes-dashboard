@@ -29,25 +29,25 @@
 
 聚焦管理层视角，展示全厂达成率、设备运行率、质量良率、急单追踪与车间排行。
 
-![工厂总览大屏](./原型/factory_overview_tv_display_auto_scroll/screen.png)
+![工厂总览大屏](./public/factory_overview_tv_display_auto_scroll/screen.png)
 
 ### 2. 编织车间大屏
 
 聚焦设备密集型车间，展示 OEE、生产进度、故障告警与机台状态矩阵。
 
-![编织车间大屏](./原型/knitting_workshop_tv_display_auto_scroll/screen.png)
+![编织车间大屏](./public/knitting_workshop_tv_display_auto_scroll/screen.png)
 
 ### 3. 套口与缝合车间大屏
 
 聚焦人工工序与 WIP 流转，展示工序瓶颈、质量预警、班组效率与人员排行。
 
-![套口与缝合车间大屏](./原型/linking_sewing_tv_display_auto_scroll/screen.png)
+![套口与缝合车间大屏](./public/linking_sewing_tv_display_auto_scroll/screen.png)
 
 ### 4. 后整与包装车间大屏
 
 聚焦洗水、烘干、包装与出货衔接，展示设备状态、批次进度、订单齐套率与发货状态。
 
-![后整与包装车间大屏](./原型/finishing_packaging_tv_display_auto_scroll/screen.png)
+![后整与包装车间大屏](./public/finishing_packaging_tv_display_auto_scroll/screen.png)
 
 ## 已实现能力
 
@@ -154,7 +154,7 @@ mes-dashboard/
 │  │  ├─ store/
 │  │  ├─ types/
 │  │  └─ utils/
-├─ 原型/
+├─ public/
 │  ├─ factory_overview_tv_display_auto_scroll/
 │  ├─ knitting_workshop_tv_display_auto_scroll/
 │  ├─ linking_sewing_tv_display_auto_scroll/
